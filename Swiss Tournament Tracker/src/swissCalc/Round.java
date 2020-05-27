@@ -58,6 +58,9 @@ public class Round {
 		
 	}
 	
+	public void reportRoundGUI(int pairingNum, int result) {
+		pairings.get(pairingNum).reportRound(result);
+	}
 	
 	public void reportRound(int currentRound) {
 		int resultOfMatch=-1;
@@ -86,6 +89,7 @@ public class Round {
 						break;
 			}
 			}while(!exitLoop);
+			
 			pairings.get(pairingNum).reportRound(resultOfMatch);
 		}
 	}
