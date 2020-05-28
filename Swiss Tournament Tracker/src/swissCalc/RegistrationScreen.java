@@ -31,6 +31,7 @@ public class RegistrationScreen {
 				try {
 					RegistrationScreen window = new RegistrationScreen();
 					window.frmMhtsVol.setVisible(true);
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,20 +52,20 @@ public class RegistrationScreen {
 	private void initialize() {
 		frmMhtsVol = new JFrame();
 		frmMhtsVol.setTitle("MHTS Vol. 0.1");
-		frmMhtsVol.setBounds(100, 100, 450, 300);
+		frmMhtsVol.setBounds(100, 100, 586, 453);
 		frmMhtsVol.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMhtsVol.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
+				ColumnSpec.decode("50dlu"),
 				FormSpecs.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),
 				FormSpecs.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
 				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
+				RowSpec.decode("8dlu"),
 				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
+				RowSpec.decode("max(9dlu;default)"),
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
 				FormSpecs.RELATED_GAP_ROWSPEC,
@@ -88,7 +89,15 @@ public class RegistrationScreen {
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,
 				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,}));
+		
+
+		
+		//headJudge.menu();
 		
 		JLabel PlayerFnameLabel = new JLabel("First Name");
 		frmMhtsVol.getContentPane().add(PlayerFnameLabel, "2, 6, right, default");
@@ -96,9 +105,6 @@ public class RegistrationScreen {
 		playerFNameIn = new JTextField();
 		frmMhtsVol.getContentPane().add(playerFNameIn, "4, 6, fill, default");
 		playerFNameIn.setColumns(10);
-		
-		JList playerList = new JList();
-		frmMhtsVol.getContentPane().add(playerList, "6, 6, 1, 8, fill, fill");
 		
 		JLabel playerLNameLabel = new JLabel("Last Name");
 		frmMhtsVol.getContentPane().add(playerLNameLabel, "2, 8, right, default");
@@ -122,6 +128,7 @@ public class RegistrationScreen {
 				String playerID = playerIDIn.getText();
 				
 				PlayerRegistration.newPlayerGUI(roster, playerFname, playerLname, playerID);
+				//playerList.ensureIndexIsVisible(roster.playerList.size());
 				
 			}
 		});
@@ -137,11 +144,11 @@ public class RegistrationScreen {
 		JButton playerRemoveButton = new JButton("Remove Player");
 		frmMhtsVol.getContentPane().add(playerRemoveButton, "4, 16");
 		
+		JLabel VersionInfo = new JLabel("Version Info copyright text");
+		frmMhtsVol.getContentPane().add(VersionInfo, "2, 18");
+		
 		JButton startTourneyButton = new JButton("Start Tournament");
 		frmMhtsVol.getContentPane().add(startTourneyButton, "6, 18");
-		
-		JLabel VersionInfo = new JLabel("Version Info copyright text");
-		frmMhtsVol.getContentPane().add(VersionInfo, "2, 20");
 	}
 
 }

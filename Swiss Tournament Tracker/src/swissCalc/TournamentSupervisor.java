@@ -35,7 +35,8 @@ public class TournamentSupervisor {
 				roster.listPlayers();
 				roster.listDrops();
 				break;
-			case "4": exitLoop=true;
+			case "4":
+				exitLoop=true;
 			break;
 			default: System.out.println("That is not a valid option");
 			break;
